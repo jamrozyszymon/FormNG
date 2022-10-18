@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{form_start(form)}}
+        {{form_row(form.name)}}
+            </br>
+            <div id="tasks" data-prototype="{{ form_widget(form.tasks.vars.prototype)|e('html_attr')}}">
+                
+                {% for row in form.tasks %}
+                    <div class="card-task">
+                        {{form_row(row)}}
+                    </div>
+                    </br>
+                {% endfor %}
+
+            </div>
+    {{form_end(form)}}
+
+{% endblock %}
